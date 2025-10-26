@@ -42,7 +42,7 @@ html, body {
              haloDrift 90s linear infinite;
 }
 
-/* 🌠 Animation pulsation lumineuse */
+/* 🌠 Animation pulsation lumineuse du halo */
 @keyframes haloPulse {
   0% {
     opacity: 0.75;
@@ -72,7 +72,7 @@ html, body {
 }
 
 /* =========================================================
-   💫 Animation lente générique (autres éléments)
+   💫 Animation lente générique (utilisée sur le logo)
    ========================================================= */
 @keyframes pulse-slow {
   0%, 100% {
@@ -87,4 +87,27 @@ html, body {
 
 .animate-pulse-slow {
   animation: pulse-slow 12s ease-in-out infinite;
+}
+
+/* =========================================================
+   🌊 Effet sonar PFOTC – onde lumineuse subtile
+   ========================================================= */
+@keyframes sonar {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.6;
+    border-width: 2px;
+  }
+  70% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+    border-width: 1px;
+  }
+}
+
+.animate-sonar {
+  animation: sonar 2.8s ease-out 0.5s;
 }
