@@ -113,7 +113,7 @@ html, body {
 }
 
 /* =========================================================
-   ✨ Effet de reflet métallique sur le texte PFOTC
+   ✨ Reflet métallique (unique à l’apparition)
    ========================================================= */
 .shine-text {
   position: relative;
@@ -127,11 +127,11 @@ html, body {
   background-size: 200% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: shineMove 6s linear infinite;
+  animation: shineOnce 1.2s ease-in-out 0.3s forwards;
 }
 
-/* Animation du reflet */
-@keyframes shineMove {
+/* Reflet unique */
+@keyframes shineOnce {
   0% {
     background-position: -200% 0;
   }
