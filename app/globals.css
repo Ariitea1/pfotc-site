@@ -111,3 +111,31 @@ html, body {
 .animate-sonar {
   animation: sonar 2.8s ease-out 0.5s;
 }
+
+/* =========================================================
+   ✨ Effet de reflet métallique sur le texte PFOTC
+   ========================================================= */
+.shine-text {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shineMove 6s linear infinite;
+}
+
+/* Animation du reflet */
+@keyframes shineMove {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
