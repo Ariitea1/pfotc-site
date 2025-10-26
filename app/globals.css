@@ -3,14 +3,13 @@
 @tailwind utilities;
 
 /* =========================================================
-   🎨 Couleurs et fond global PFOTC
+   🎨 Couleur de fond PFOTC
    ========================================================= */
 :root {
   --bg: #0b1220;
 }
 
-html,
-body {
+html, body {
   background-color: var(--bg);
   color: rgb(226 232 240); /* slate-200 */
   overflow-x: hidden;
@@ -21,18 +20,18 @@ body {
    ========================================================= */
 .halo {
   position: absolute;
-  bottom: -200px;              /* descend sous le cadre visible */
+  bottom: -200px;
   left: 50%;
   width: 160%;
   height: 700px;
   transform: translateX(-50%);
   background: radial-gradient(
     ellipse at center,
-    rgba(255, 255, 255, 0.4) 0%,      /* cœur blanc doux */
-    rgba(180, 230, 255, 0.25) 20%,    /* halo clair bleuté */
-    rgba(0, 180, 255, 0.15) 45%,      /* lueur bleu océan */
-    rgba(0, 120, 255, 0.1) 70%,       /* dégradé bleu profond */
-    transparent 85%                   /* fondu vers fond */
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(180, 230, 255, 0.25) 20%,
+    rgba(0, 180, 255, 0.15) 45%,
+    rgba(0, 120, 255, 0.1) 70%,
+    transparent 85%
   );
   filter: blur(100px);
   opacity: 0.9;
@@ -42,7 +41,7 @@ body {
   animation: haloPulse 18s ease-in-out infinite, haloDrift 90s linear infinite;
 }
 
-/* 🌠 Animation pulsation lumineuse douce */
+/* 🌠 Pulsation douce */
 @keyframes haloPulse {
   0% {
     opacity: 0.75;
@@ -58,7 +57,7 @@ body {
   }
 }
 
-/* 🌎 Animation lente de déplacement horizontal (effet orbite) */
+/* 🌎 Lente dérive horizontale */
 @keyframes haloDrift {
   0% {
     transform: translateX(-50%) rotate(0deg);
