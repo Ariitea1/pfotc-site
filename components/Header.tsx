@@ -56,7 +56,7 @@ export default function Header() {
               loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
             }`}
           >
-            <h1 className="shine-text text-lg font-bold tracking-wide leading-tight">
+            <h1 className="text-white text-lg font-bold tracking-wide leading-tight">
               PFOTC
             </h1>
             <p className="text-slate-400 text-sm leading-tight">
