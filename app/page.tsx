@@ -1,67 +1,80 @@
-
-import Kicker from "@/components/Kicker";
-import ServiceCard from "@/components/ServiceCard";
-import { AirIcon, CapIcon, GlobeIcon } from "@/components/Icons";
-
 export default function Page() {
   return (
-    <section className="relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-          <div>
-            <h1 className="text-4xl sm:text-5xl font-bold leading-[1.1]">
-              Pacific Flight Operations
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-400">& Training Center</span>
-            </h1>
-            <p className="mt-5 text-lg text-slate-300 max-w-2xl">
-              Expertise, Formation & Innovation au service des opérations aériennes.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a href="/formations" className="px-5 py-3 rounded-xl bg-cyan-500 text-[#0b1220] font-medium hover:bg-cyan-400 transition-colors">Découvrir les formations</a>
-              <a href="/services" className="px-5 py-3 rounded-xl border border-white/15 hover:bg-white/5 transition-colors">Voir les services</a>
-            </div>
-          </div>
-
-          <div className="relative h-72 sm:h-96 lg:h-[28rem]">
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-900/40 to-cyan-900/30 border border-white/10 shadow-2xl overflow-hidden">
-              <svg viewBox="0 0 800 600" className="w-full h-full opacity-70">
-                <defs>
-                  <linearGradient id="glow" x1="0" x2="1">
-                    <stop offset="0%" stopColor="#00FFFF" stopOpacity="0.0" />
-                    <stop offset="50%" stopColor="#00FFFF" stopOpacity="0.6" />
-                    <stop offset="100%" stopColor="#007BFF" stopOpacity="0.2" />
-                  </linearGradient>
-                </defs>
-                <g fill="none" strokeWidth="2">
-                  <path d="M-50 520 C 200 420, 400 620, 850 300" stroke="url(#glow)" />
-                  <path d="M-80 200 C 160 120, 420 220, 820 80" stroke="url(#glow)" strokeOpacity="0.7" />
-                  <path d="M-20 380 C 200 300, 420 420, 840 240" stroke="url(#glow)" strokeOpacity="0.5" />
-                </g>
-                <g fill="#00ffff" opacity="0.8">
-                  <circle cx="520" cy="270" r="3" />
-                  <circle cx="640" cy="190" r="2" />
-                  <circle cx="700" cy="320" r="2" />
-                </g>
-              </svg>
-            </div>
-            <div className="absolute inset-0 p-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
-              {[
-                { title: "Flight Operations Services", desc: "OCC, Dispatch, Loadsheet – supervision 24/7 et solutions remote.", icon: AirIcon },
-                { title: "Training & CBTA Modules", desc: "Initial, recurrent, CBTA – conformité EASA/ICAO.", icon: CapIcon },
-                { title: "Consulting & Partnerships", desc: "OMD, MEL/ETOPS, DAC, Ferry – expertise opérationnelle.", icon: GlobeIcon },
-              ].map((card) => (
-                <div key={card.title} className="rounded-2xl border border-white/10 bg-black/20 p-4 backdrop-blur-sm hover:bg-black/30 hover:border-cyan-400/40 transition-all">
-                  <div className="flex items-center gap-3">
-                    <card.icon className="h-5 w-5 text-cyan-300" />
-                    <h3 className="font-semibold">{card.title}</h3>
-                  </div>
-                  <p className="mt-2 text-sm text-slate-300">{card.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+    <main className="min-h-screen bg-gradient-to-b from-[#041e3a] via-[#052d5c] to-[#02101f] text-white flex flex-col items-center justify-center px-6">
+      {/* HEADER LOGO */}
+      <header className="absolute top-8 left-1/2 transform -translate-x-1/2 flex items-center gap-2">
+        <div className="flex items-center gap-2">
+          <img src="/icon.png" alt="PFOTC Logo" className="w-8 h-8" />
+          <h1 className="text-lg font-semibold tracking-wide">PFOTC</h1>
         </div>
-      </div>
-    </section>
+      </header>
+
+      {/* NAVIGATION */}
+      <nav className="absolute top-8 right-8 hidden sm:flex gap-6 text-sm text-slate-300">
+        <a href="/" className="hover:text-white">Accueil</a>
+        <a href="/formations" className="hover:text-white">Formations</a>
+        <a href="/services" className="hover:text-white">Services</a>
+        <a href="/contact" className="hover:text-white">Contact</a>
+      </nav>
+
+      {/* HERO SECTION */}
+      <section className="text-center max-w-3xl">
+        <h2 className="text-4xl sm:text-5xl font-bold leading-tight">
+          Pacific Flight Operations<br />
+          <span className="text-cyan-400">& Training Center</span>
+        </h2>
+        <p className="mt-6 text-lg text-slate-300">
+          Expertise, Formation & Innovation au service des opérations aériennes
+        </p>
+
+        {/* CTA BUTTONS */}
+        <div className="mt-10 flex flex-wrap justify-center gap-4">
+          <a
+            href="/formations"
+            className="px-6 py-3 bg-cyan-500 text-[#0b1220] font-medium rounded-xl hover:bg-cyan-400 transition"
+          >
+            Découvrir les formations
+          </a>
+          <a
+            href="/services"
+            className="px-6 py-3 border border-white/20 rounded-xl hover:bg-white/10 transition"
+          >
+            Voir les services
+          </a>
+        </div>
+      </section>
+
+      {/* CARDS SECTION */}
+      <section className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-5xl">
+        <div className="rounded-2xl bg-gradient-to-b from-[#092a50]/70 to-[#0b2547]/40 border border-cyan-400/10 p-6 text-center hover:border-cyan-400/40 transition-all">
+          <div className="text-cyan-400 mb-3 text-2xl">🛫</div>
+          <h3 className="font-semibold text-lg mb-2">Flight Operations Services</h3>
+          <p className="text-slate-300 text-sm">
+            OCC, Dispatch, Loadsheet – supervision 24/7 et solutions remote.
+          </p>
+        </div>
+
+        <div className="rounded-2xl bg-gradient-to-b from-[#092a50]/70 to-[#0b2547]/40 border border-cyan-400/10 p-6 text-center hover:border-cyan-400/40 transition-all">
+          <div className="text-cyan-400 mb-3 text-2xl">🎓</div>
+          <h3 className="font-semibold text-lg mb-2">Training & CBTA Modules</h3>
+          <p className="text-slate-300 text-sm">
+            Initial, recurrent, CBTA – conformité EASA/ICAO.
+          </p>
+        </div>
+
+        <div className="rounded-2xl bg-gradient-to-b from-[#092a50]/70 to-[#0b2547]/40 border border-cyan-400/10 p-6 text-center hover:border-cyan-400/40 transition-all">
+          <div className="text-cyan-400 mb-3 text-2xl">🌐</div>
+          <h3 className="font-semibold text-lg mb-2">Consulting & Partnerships</h3>
+          <p className="text-slate-300 text-sm">
+            OMD, MEL/ETOPS, DAC, Ferry – expertise opérationnelle.
+          </p>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="mt-20 text-center text-slate-400 text-sm pb-8">
+        © PFOTC – Powered by <span className="text-cyan-400">Ariitea Frogier</span>
+      </footer>
+    </main>
   );
 }
