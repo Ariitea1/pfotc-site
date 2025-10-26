@@ -13,7 +13,7 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-[#0b1220]/95 backdrop-blur-sm border-b border-white/5">
+    <header className="fixed top-0 left-0 w-full z-50 bg-[#0b1220]/95 backdrop-blur-sm border-b border-white/5 overflow-hidden">
       <div className="max-w-7xl mx-auto flex items-center justify-between py-4 px-6">
         {/* LOGO PFOTC */}
         <Link href="/" className="flex items-center gap-3 group relative">
@@ -23,6 +23,13 @@ export default function Header() {
               loaded
                 ? "opacity-80 animate-pulse-slow"
                 : "opacity-0 scale-75"
+            }`}
+          />
+
+          {/* SONAR LUMINEUX */}
+          <div
+            className={`absolute inset-0 rounded-full border border-cyan-300/30 scale-50 opacity-0 ${
+              loaded ? "animate-sonar" : ""
             }`}
           />
 
