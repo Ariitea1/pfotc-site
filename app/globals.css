@@ -38,22 +38,23 @@ html, body {
   border-radius: 50%;
   pointer-events: none;
   z-index: 0;
-  animation: haloPulse 18s ease-in-out infinite, haloDrift 90s linear infinite;
+  animation: haloPulse 18s ease-in-out infinite,
+             haloDrift 90s linear infinite;
 }
 
 /* 🌠 Animation pulsation lumineuse */
 @keyframes haloPulse {
   0% {
     opacity: 0.75;
-    transform: translateX(-50%) scale(1);
+    scale: 1;
   }
   50% {
     opacity: 1;
-    transform: translateX(-50%) scale(1.05);
+    scale: 1.05;
   }
   100% {
     opacity: 0.75;
-    transform: translateX(-50%) scale(1);
+    scale: 1;
   }
 }
 
@@ -68,4 +69,22 @@ html, body {
   100% {
     transform: translateX(-50%) rotate(0deg);
   }
+}
+
+/* =========================================================
+   💫 Animation lente générique (autres éléments)
+   ========================================================= */
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.8;
+    scale: 1;
+  }
+  50% {
+    opacity: 1;
+    scale: 1.05;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 12s ease-in-out infinite;
 }
