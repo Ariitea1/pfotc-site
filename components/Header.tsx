@@ -15,14 +15,14 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-[#0b1220]/95 backdrop-blur-sm border-b border-white/5 overflow-hidden">
       <div className="max-w-7xl mx-auto flex items-center justify-between py-4 px-6">
+        
         {/* LOGO PFOTC */}
         <Link href="/" className="flex items-center gap-3 group relative">
+          
           {/* HALO ANIMÉ */}
           <div
             className={`absolute -inset-3 rounded-full bg-cyan-400/10 blur-xl transition-all duration-1000 ${
-              loaded
-                ? "opacity-80 animate-pulse-slow"
-                : "opacity-0 scale-75"
+              loaded ? "opacity-80 animate-pulse-slow" : "opacity-0 scale-75"
             }`}
           />
 
@@ -50,13 +50,13 @@ export default function Header() {
             />
           </div>
 
-          {/* TEXTE PFOTC */}
+          {/* TEXTE PFOTC + sous-titre */}
           <div
             className={`ml-2 transition-all duration-1000 delay-300 ${
               loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
             }`}
           >
-            <h1 className="text-white text-lg font-bold tracking-wide leading-tight">
+            <h1 className="shine-text text-lg font-bold tracking-wide leading-tight">
               PFOTC
             </h1>
             <p className="text-slate-400 text-sm leading-tight">
