@@ -11,11 +11,10 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="fr">
-      <body className="relative overflow-x-hidden">
+      <body className="relative overflow-x-hidden bg-[#0b1220]">
         <Header />
         <main className="relative z-10">{children}</main>
         <Footer />
-        {/* 🌌 Halo lumineux PFOTC */}
         <div className="halo" />
       </body>
     </html>
