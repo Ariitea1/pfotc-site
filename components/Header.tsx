@@ -1,55 +1,56 @@
-'use client';
-import Image from 'next/image';
-import Link from 'next/link';
+
+"use client";
+import Link from "next/link";
+import { useState } from "react";
+
+const links = [
+  { href: "/", label: "Accueil" },
+  { href: "/formations", label: "Formations" },
+  { href: "/services", label: "Services" },
+  { href: "/partenaires", label: "Partenaires" },
+  { href: "/contact", label: "Contact" },
+];
 
 export default function Header() {
+  const [open, setOpen] = useState(false);
   return (
-    <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-lg">
-      <nav className="flex items-center justify-between px-8 py-4 bg-[rgba(4,14,30,0.85)] border-b border-[rgba(0,180,255,0.15)] shadow-[0_2px_12px_rgba(0,0,0,0.3)]">
-        {/* === LOGO PFOTC === */}
-        <div className="flex items-center space-x-3">
-          <Image
-            src="/icon.png" // ✅ ton logo (ou favicon aile)
-            alt="PFOTC Logo"
-            width={36}
-            height={36}
-            className="drop-shadow-[0_0_8px_rgba(0,200,255,0.5)]"
-          />
-          <div className="flex flex-col leading-tight">
-            <span className="text-white font-bold tracking-wide text-lg">PFOTC</span>
-            <span className="text-[13px] text-slate-300 font-light">
-              Pacific Flight Operations & Training Center
-            </span>
+    <header className="sticky top-0 z-40 backdrop-blur bg-[#0b1220]/70 border-b border-white/10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="h-16 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="relative h-9 w-9 rounded-full bg-cyan-400/10 flex items-center justify-center">
+              <div className="absolute inset-0 rounded-full blur-md bg-cyan-400/30" />
+              <svg viewBox="0 0 24 24" className="h-5 w-5 text-cyan-300">
+                <path fill="currentColor" d="M2 12c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12zm7.2-1.2l9-3-6.6 6.6-1.2-2.4-2.4-1.2 1.2-1.2z" />
+              </svg>
+            </div>
+            <span className="text-lg font-semibold tracking-wide">PFOTC</span>
+            <span className="hidden sm:inline text-xs text-slate-400">Pacific Flight Operations & Training Center</span>
+          </div>
+          <nav className="hidden md:flex items-center gap-7 text-sm">
+            {links.map(l => (
+              <Link key={l.href} href={l.href} className="text-slate-300 hover:text-white transition-colors">
+                {l.label}
+              </Link>
+            ))}
+            <Link href="/contact" className="px-4 py-2 rounded-xl bg-cyan-500/20 text-cyan-200 border border-cyan-300/30 hover:bg-cyan-500/30 hover:text-white transition-colors">Contactez-nous</Link>
+          </nav>
+          <button onClick={() => setOpen(!open)} className="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg hover:bg-white/5">
+            <svg viewBox="0 0 24 24" className="h-6 w-6"><path fill="currentColor" d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg>
+          </button>
+        </div>
+      </div>
+      {open && (
+        <div className="md:hidden border-t border-white/10 bg-[#0b1220]/95">
+          <div className="px-4 py-3 space-y-3">
+            {links.map(l => (
+              <Link key={l.href} href={l.href} onClick={() => setOpen(false)} className="block text-slate-200">
+                {l.label}
+              </Link>
+            ))}
           </div>
         </div>
-
-        {/* === MENU === */}
-        <div className="flex space-x-8 text-[15px] font-medium">
-          <Link href="/" className="text-slate-100 hover:text-cyan-400 transition">
-            Accueil
-          </Link>
-          <Link href="#formations" className="text-slate-100 hover:text-cyan-400 transition">
-            Formations
-          </Link>
-          <Link href="#services" className="text-slate-100 hover:text-cyan-400 transition">
-            Services
-          </Link>
-          <Link href="#partenaires" className="text-slate-100 hover:text-cyan-400 transition">
-            Partenaires
-          </Link>
-          <Link href="#contact" className="text-slate-100 hover:text-cyan-400 transition">
-            Contact
-          </Link>
-        </div>
-
-        {/* === CTA === */}
-        <Link
-          href="#contact"
-          className="ml-8 px-5 py-2.5 rounded-xl border border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-white transition font-semibold shadow-[0_0_12px_rgba(0,200,255,0.3)]"
-        >
-          Contactez-nous
-        </Link>
-      </nav>
+      )}
     </header>
   );
 }
