@@ -2,83 +2,71 @@
 @tailwind components;
 @tailwind utilities;
 
+/* =========================================================
+   🎨 Couleurs et fond global PFOTC
+   ========================================================= */
 :root {
   --bg: #0b1220;
 }
 
-html, body {
+html,
+body {
   background-color: var(--bg);
   color: rgb(226 232 240); /* slate-200 */
+  overflow-x: hidden;
 }
 
-/* === Halos existants === */
-.gradient-halo-1 {
-  position: absolute;
-  height: 60vh;
-  width: 60vw;
-  border-radius: 9999px;
-  filter: blur(48px);
-  opacity: .4;
-  background: radial-gradient(ellipse at center, rgba(0,153,255,.55), rgba(0,0,0,0));
-}
-
-.gradient-halo-2 {
-  position: absolute;
-  height: 50vh;
-  width: 50vw;
-  border-radius: 9999px;
-  filter: blur(48px);
-  opacity: .4;
-  background: radial-gradient(ellipse at center, rgba(0,255,255,.35), rgba(0,0,0,0));
-}
-
-.gradient-halo-3 {
-  position: absolute;
-  height: 35vh;
-  width: 90vw;
-  filter: blur(32px);
-  opacity: .4;
-  background: linear-gradient(90deg, rgba(0,153,255,.25), rgba(0,255,255,.25));
-} /* ✅ ← tu avais oublié de fermer cette accolade */
-
-/* =====================================================
-   🌌 PFOTC HALO - effet de lueur "horizon terrestre"
-   ===================================================== */
+/* =========================================================
+   🌌 PFOTC HALO – effet lumineux "horizon terrestre"
+   ========================================================= */
 .halo {
   position: absolute;
-  bottom: -150px; /* descend légèrement sous le cadre */
+  bottom: -200px;              /* descend sous le cadre visible */
   left: 50%;
-  width: 140%;
-  height: 600px;
+  width: 160%;
+  height: 700px;
   transform: translateX(-50%);
   background: radial-gradient(
     ellipse at center,
-    rgba(0, 210, 255, 0.5) 0%,
-    rgba(0, 180, 255, 0.35) 25%,
-    rgba(0, 130, 255, 0.2) 50%,
-    rgba(255, 255, 255, 0.08) 70%,
-    transparent 85%
+    rgba(255, 255, 255, 0.4) 0%,      /* cœur blanc doux */
+    rgba(180, 230, 255, 0.25) 20%,    /* halo clair bleuté */
+    rgba(0, 180, 255, 0.15) 45%,      /* lueur bleu océan */
+    rgba(0, 120, 255, 0.1) 70%,       /* dégradé bleu profond */
+    transparent 85%                   /* fondu vers fond */
   );
   filter: blur(100px);
-  opacity: 0.8;
-  z-index: 0;
-  pointer-events: none;
-  animation: haloPulse 18s ease-in-out infinite;
+  opacity: 0.9;
   border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: haloPulse 18s ease-in-out infinite, haloDrift 90s linear infinite;
 }
 
-/* Animation douce pour la pulsation lumineuse */
+/* 🌠 Animation pulsation lumineuse douce */
 @keyframes haloPulse {
   0% {
     opacity: 0.75;
     transform: translateX(-50%) scale(1);
   }
   50% {
-    opacity: 0.9;
+    opacity: 1;
     transform: translateX(-50%) scale(1.05);
   }
   100% {
     opacity: 0.75;
     transform: translateX(-50%) scale(1);
+  }
+}
+
+/* 🌎 Animation lente de déplacement horizontal (effet orbite) */
+@keyframes haloDrift {
+  0% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  50% {
+    transform: translateX(-52%) rotate(0.5deg);
+  }
+  100% {
+    transform: translateX(-50%) rotate(0deg);
   }
 }
