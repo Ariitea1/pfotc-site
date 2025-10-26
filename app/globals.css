@@ -111,31 +111,3 @@ html, body {
 .animate-sonar {
   animation: sonar 2.8s ease-out 0.5s;
 }
-
-/* =========================================================
-   ✨ Reflet métallique (unique à l’apparition)
-   ========================================================= */
-.shine-text {
-  position: relative;
-  display: inline-block;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.2) 0%,
-    rgba(255, 255, 255, 0.8) 50%,
-    rgba(255, 255, 255, 0.2) 100%
-  );
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shineOnce 1.2s ease-in-out 0.3s forwards;
-}
-
-/* Reflet unique */
-@keyframes shineOnce {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
