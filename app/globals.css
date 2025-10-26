@@ -41,7 +41,7 @@ html, body {
   animation: haloPulse 18s ease-in-out infinite, haloDrift 90s linear infinite;
 }
 
-/* 🌠 Pulsation douce */
+/* 🌠 Animation pulsation lumineuse */
 @keyframes haloPulse {
   0% {
     opacity: 0.75;
@@ -57,7 +57,7 @@ html, body {
   }
 }
 
-/* 🌎 Lente dérive horizontale */
+/* 🌎 Mouvement lent pour effet orbital */
 @keyframes haloDrift {
   0% {
     transform: translateX(-50%) rotate(0deg);
